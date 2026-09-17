@@ -4,39 +4,60 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <body>
-      <h1>Weather at a Glance 🌤️</h1>
 
-      <form onsubmit="checkWeather(event)">
-        <input type="text" class="input" placeholder="Enter Your City" />
-        <button class="button">Check Weather</button>
+  <body>
+    <main class="weather-container">
+      <header class="header">
+        <h1>Weather at a Glance 🌤️</h1>
+      </header>
+
+      <form class="search-form" onsubmit="checkWeather(event)">
+        <div class="input-wrapper">
+          <input type="text" class="input" placeholder="Enter Your City" />
+          <button class="button">Check Weather</button>
+        </div>
       </form>
 
-      <!-- Location -->
-      <p class="place"></p>
-      <p class="region"></p>
-      <p class="time"></p>
+      <div class="weather-content">
+        <!-- Error & Empty Messages -->
+        <p class="empty all"></p>
+        <p class="notfound"></p>
 
-      <!-- Main Weather -->
-      <p class="temp"></p>
-      <img class="conditionIcon" />
-      <p class="conditionText"></p>
-      <p class="feelslike"></p>
+        <!-- Location -->
+        <div class="location-info">
+          <p class="place all"></p>
+          <p class="region all"></p>
+          <p class="time all"></p>
+        </div>
 
-      <!-- Weather Details -->
-      <p class="humidity"></p>
-      <p class="rain"></p>
-      <p class="wind"></p>
-      <p class="uv"></p>
-      <p class="visiblity"></p>
+        <!-- Main Weather -->
+        <div class="main-weather">
+          <img class="conditionIcon all" />
+          <p class="temp all"></p>
+          <p class="conditionText all"></p>
+          <p class="feelslike all"></p>
+        </div>
 
-      <!-- error -->
-      <p class="empty"></p>
-      <script src="https://cdn.jsdelivr.net/npm/axios@1.17.0/dist/axios.min.js"></script>
-      <script src="./app.js"></script>
-    </body>
+        <!-- Weather Details -->
+        <div class="weather-details">
+          <p class="humidity all"></p>
+          <p class="rain all"></p>
+          <p class="wind all"></p>
+          <p class="uv all"></p>
+          <p class="visiblity all"></p>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.17.0/dist/axios.min.js"></script>
+    <script src="./app.js"></script>
   </body>
 </html>
