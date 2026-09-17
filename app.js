@@ -15,13 +15,21 @@ let empty = document.querySelector(".empty");
 let notfound = document.querySelector(".notfound");
 let all = document.querySelectorAll(".all");
 
+let input = document.querySelector(".input")
+
+input.value = localStorage.getItem("place") || ""
+
+
 // function for onsubmiting form
 async function checkWeather(event) {
   try {
     event.preventDefault();
-
+    
     // saving input value
     let location = document.querySelector(".input").value.trim();
+    
+    // saving input value into the localStorage
+    localStorage.setItem("place" , input.value)
 
     // handling empty input
     if (location === "") {
