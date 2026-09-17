@@ -10,18 +10,16 @@ let rain = document.querySelector(".rain");
 let wind = document.querySelector(".wind");
 let uv = document.querySelector(".uv");
 let visiblity = document.querySelector(".visiblity");
-let empty = document.querySelector(".empty")
-
-
+let empty = document.querySelector(".empty");
 
 async function checkWeather(event) {
   event.preventDefault();
   let location = document.querySelector(".input").value.trim();
 
-if (location === ""){
-    empty.innerHTML = "Please Enter Your City "
+  if (location === "") {
+    empty.innerHTML = "Please Enter Your City ";
     return;
-}
+  }
   let output = await axios(
     `https://api.weatherapi.com/v1/current.json?key=60e0a3d2f152486e950213038260606&q=${location}`,
   );
