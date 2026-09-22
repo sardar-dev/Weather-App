@@ -14,7 +14,8 @@ let visiblity = document.querySelector(".visiblity");
 let empty = document.querySelector(".empty");
 let notfound = document.querySelector(".notfound");
 let all = document.querySelectorAll(".all");
-
+let loading = document.querySelector(".loading")
+let load = document.querySelector(".load")
 let input = document.querySelector(".input");
 
 input.value = localStorage.getItem("place") || "";
@@ -61,6 +62,11 @@ async function checkWeather(event) {
       return;
     }
 
+// loading 
+// load.src = "https://pixabay.com/gifs/loading-icon-progress-waiting-24054/"
+
+loading.innerHTML= "loading"
+
     // weather api
     let output = await axios(
       `https://api.weatherapi.com/v1/current.json?key=60e0a3d2f152486e950213038260606&q=${location}`,
@@ -88,6 +94,7 @@ async function checkWeather(event) {
       "👁️ Visibility: " + output.data.current.vis_km + " km";
   } catch (error) {
     // clear all previous data before showing not found
+    loading.innerHTML = "";
     temp.innerHTML = "";
     place.innerHTML = "";
     region.innerHTML = "";
@@ -108,4 +115,5 @@ async function checkWeather(event) {
     // clear empty value msg
     empty.innerHTML = "";
   }
+  loading.innerHTML= ""
 }
